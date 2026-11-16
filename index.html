@@ -1,0 +1,199 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lucas Tapajós · Dados e Marketing Analytics</title>
+<meta name="description" content="Portfólio de Lucas Tapajós: análise de dados aplicada a marketing, com projetos públicos em Python, SQL, estatística e painéis.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Lucas Tapajós · Dados e Marketing Analytics">
+<meta property="og:description" content="Projetos públicos de análise de dados: coleta por API, SQL, estatística e painéis publicados.">
+<meta property="og:image" content="https://lucastapajos-max.github.io/assets/painel.jpg">
+<meta property="og:url" content="https://lucastapajos-max.github.io/">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --fundo: #f6f4ef;
+  --superficie: #ffffff;
+  --tinta: #1c2226;
+  --tinta-2: #4a5157;
+  --linha: #dedad1;
+  --destaque: #0f7b6c;
+  --destaque-escuro: #0b5e53;
+  --destaque-claro: #e3f0ed;
+  --sobre-destaque: #ffffff;
+  --raio: 10px;
+  --largura: 1080px;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --fundo: #14181a; --superficie: #1c2226; --tinta: #eef0ee; --tinta-2: #b4bbb8;
+    --linha: #2e3539; --destaque: #3fb5a2; --destaque-escuro: #6fd0c0; --destaque-claro: #1d3532; --sobre-destaque: #0b1f1c;
+  }
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0; background: var(--fundo); color: var(--tinta);
+  font: 400 1.0625rem/1.6 "IBM Plex Sans", system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+::selection { background: var(--destaque); color: var(--sobre-destaque); }
+a { color: var(--destaque-escuro); text-underline-offset: 3px; }
+:focus-visible { outline: 2px solid var(--destaque); outline-offset: 3px; border-radius: 4px; }
+.pular { position: absolute; left: -999px; top: 8px; background: var(--superficie); padding: 8px 12px; }
+.pular:focus { left: 16px; }
+.wrap { max-width: var(--largura); margin: 0 auto; padding: 0 24px; }
+h1, h2, h3 { line-height: 1.15; letter-spacing: -0.02em; text-wrap: balance; margin: 0; }
+p { margin: 0; max-width: 64ch; text-wrap: pretty; }
+
+/* Abertura */
+.abertura { min-height: 92vh; display: flex; align-items: center; padding: 72px 0; }
+.abertura h1 { font-size: clamp(2.6rem, 6vw, 4.25rem); font-weight: 700; }
+.abertura .cargo { font-size: clamp(1.25rem, 2.4vw, 1.6rem); font-weight: 500; color: var(--destaque-escuro); margin-top: 12px; }
+.abertura .resumo { font-size: 1.2rem; color: var(--tinta-2); margin-top: 24px; }
+.abertura .fato { margin-top: 16px; color: var(--tinta-2); }
+.acoes { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 36px; }
+.botao {
+  display: inline-flex; align-items: center; min-height: 48px; padding: 0 22px; border-radius: 999px;
+  font-weight: 600; text-decoration: none; border: 1.5px solid var(--destaque);
+  transition: transform .15s ease-out, background-color .15s ease-out, color .15s ease-out;
+}
+.botao.cheio { background: var(--destaque); color: var(--sobre-destaque); }
+.botao.vazio { color: var(--destaque-escuro); }
+.botao:hover { transform: translateY(-2px); }
+.botao.vazio:hover { background: var(--destaque-claro); }
+.botao:active { transform: translateY(0); }
+@media (prefers-reduced-motion: no-preference) {
+  .entra { animation: entra .7s cubic-bezier(.16, 1, .3, 1) both; }
+  .entra:nth-child(2) { animation-delay: .08s; } .entra:nth-child(3) { animation-delay: .16s; }
+  .entra:nth-child(4) { animation-delay: .24s; } .entra:nth-child(5) { animation-delay: .32s; }
+  @keyframes entra { from { opacity: 0; transform: translateY(14px); } }
+}
+
+.abertura-grade { display: grid; grid-template-columns: 1.1fr 1fr; gap: 56px; align-items: center; }
+.quadro {
+  display: block; overflow: hidden; border-radius: var(--raio); border: 1px solid var(--linha);
+  box-shadow: 0 12px 32px -18px rgba(20, 30, 30, .35); background: var(--superficie);
+}
+.quadro img { display: block; width: 100%; height: auto; transition: transform .4s cubic-bezier(.16, 1, .3, 1); }
+.quadro:hover img { transform: scale(1.025); }
+
+/* Seções */
+section.bloco { padding: 96px 0; border-top: 1px solid var(--linha); }
+section.bloco h2 { font-size: clamp(1.75rem, 3.4vw, 2.4rem); font-weight: 650; margin-bottom: 16px; }
+.intro { color: var(--tinta-2); margin-bottom: 48px; }
+
+.trilhas { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+.trilha { background: var(--superficie); border: 1px solid var(--linha); border-radius: var(--raio); padding: 32px; }
+.trilha h3 { font-size: 1.3rem; margin-bottom: 12px; }
+.trilha p { color: var(--tinta-2); }
+.trilha ul { margin: 20px 0 0; padding: 0; list-style: none; display: flex; flex-wrap: wrap; gap: 8px; }
+.trilha li, .ferramentas li {
+  font-size: .9rem; padding: 4px 12px; border-radius: 999px; background: var(--destaque-claro); color: var(--destaque-escuro);
+}
+
+.projeto { display: grid; grid-template-columns: 1.15fr 1fr; gap: 48px; align-items: center; }
+.projeto h3 { font-size: 1.6rem; margin-bottom: 8px; }
+.projeto .comprova { font-size: .95rem; font-weight: 600; color: var(--destaque-escuro); margin-bottom: 20px; }
+.projeto p + p { margin-top: 14px; }
+.projeto .texto p { color: var(--tinta-2); }
+.ferramentas { margin: 24px 0 0; padding: 0; list-style: none; display: flex; flex-wrap: wrap; gap: 8px; }
+
+.contato .canais { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 32px; }
+footer { padding: 40px 0 56px; color: var(--tinta-2); font-size: .9rem; border-top: 1px solid var(--linha); }
+
+@media (max-width: 820px) {
+  .trilhas, .projeto, .abertura-grade { grid-template-columns: 1fr; }
+  .projeto { gap: 28px; }
+  section.bloco { padding: 72px 0; }
+  .abertura { min-height: auto; padding: 96px 0 72px; }
+  .botao { width: 100%; justify-content: center; }
+}
+</style>
+</head>
+<body>
+<a class="pular" href="#conteudo">Pular para o conteúdo</a>
+
+<header class="abertura">
+  <div class="wrap abertura-grade">
+  <div>
+    <h1 class="entra">Lucas Tapajós</h1>
+    <p class="cargo entra">Analista de Dados &amp; Marketing Analytics</p>
+    <p class="resumo entra">Cheguei aos dados pelo marketing. Sei o que cada métrica significa para quem decide e construo a análise que sustenta essa decisão.</p>
+    <p class="fato entra">MBA em Business Intelligence &amp; Analytics (ECA-USP) · Rio de Janeiro</p>
+    <div class="acoes entra">
+      <a class="botao cheio" href="#projetos">Ver projetos</a>
+      <a class="botao vazio" href="https://www.linkedin.com/in/lucas-tapajos">LinkedIn</a>
+    </div>
+  </div>
+  <a class="quadro vitrine entra" href="#projetos" aria-label="Ir para o projeto em destaque">
+    <img src="assets/serie.jpg" width="800" height="562" alt="Gráfico semanal de acessos de um artista com a faixa de normalidade e o pico da semana destacado">
+  </a>
+  </div>
+</header>
+
+<main id="conteudo">
+  <section class="bloco" aria-labelledby="t-trilhas">
+    <div class="wrap">
+      <h2 id="t-trilhas">O que eu entrego</h2>
+      <p class="intro">Hoje sou Analista de Dados e Performance de mídias sociais na Universal Music Brasil. São cinco anos entre comunicação, marketing e dados.</p>
+      <div class="trilhas">
+        <article class="trilha">
+          <h3>Marketing analytics</h3>
+          <p>Na Universal, faço os relatórios de performance das redes para o time e a liderança, com benchmark contra gravadoras concorrentes. Antes de recomendar mudança de pauta, formato ou investimento, testo se a variação é real ou ruído.</p>
+          <ul aria-label="Temas"><li>Performance</li><li>Web analytics</li><li>Inteligência de mercado</li><li>Benchmark</li></ul>
+        </article>
+        <article class="trilha">
+          <h3>Análise de dados</h3>
+          <p>Construí em Python o sistema de dados do relatório semanal da Universal: coleta automática, banco SQLite, consultas em SQL e painel em Streamlit, com testes automatizados.</p>
+          <ul aria-label="Ferramentas"><li>SQL</li><li>Python</li><li>pandas</li><li>Estatística</li><li>Power BI</li><li>Streamlit</li></ul>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="bloco" id="projetos" aria-labelledby="t-projetos">
+    <div class="wrap">
+      <h2 id="t-projetos">Projetos</h2>
+      <p class="intro">Projetos públicos, com dados abertos, código aberto e painel no ar.</p>
+      <article class="projeto">
+        <a class="quadro" href="https://wikipedia-musica-brasileira.streamlit.app" aria-label="Abrir o painel Acessos à Wikipédia e eventos da música brasileira">
+          <img src="assets/painel.jpg" width="800" height="562" alt="Painel com o resumo da semana e a tabela de 24 artistas, com os que ficaram acima do normal destacados" loading="lazy">
+        </a>
+        <div class="texto">
+          <h3>Acessos à Wikipédia e eventos da música brasileira</h3>
+          <p class="comprova">Para as duas trilhas: o ciclo completo de dados e a leitura de um evento nos números</p>
+          <p>Acontecimentos do mundo real, como um aniversário ou a data de uma morte, aparecem nos acessos aos verbetes de 24 artistas brasileiros na Wikipédia. O painel separa esses picos da oscilação comum.</p>
+          <p>Uma faixa de normalidade por artista diz se a semana fugiu do padrão, um z-score robusto acha os dias atípicos e um teste t de Welch compara gêneros musicais. Os dados se atualizam sozinhos toda segunda.</p>
+          <ul class="ferramentas" aria-label="Ferramentas do projeto"><li>Python</li><li>SQLite e SQL</li><li>pandas e SciPy</li><li>Streamlit</li><li>GitHub Actions</li><li>pytest</li></ul>
+          <div class="acoes">
+            <a class="botao cheio" href="https://wikipedia-musica-brasileira.streamlit.app">Ver o painel</a>
+            <a class="botao vazio" href="https://github.com/lucastapajos-max/acessos-wikipedia-musica">Ver o código</a>
+          </div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section class="bloco contato" aria-labelledby="t-contato">
+    <div class="wrap">
+      <h2 id="t-contato">Contato</h2>
+      <p class="intro">Aberto a vagas no Rio de Janeiro, em São Paulo e remotas.</p>
+      <div class="canais">
+        <a class="botao cheio" href="mailto:contato.ltapajos@gmail.com">contato.ltapajos@gmail.com</a>
+        <a class="botao vazio" href="https://www.linkedin.com/in/lucas-tapajos">LinkedIn</a>
+        <a class="botao vazio" href="https://github.com/lucastapajos-max">GitHub</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">Lucas Tapajós · Rio de Janeiro</div>
+</footer>
+</body>
+</html>

@@ -14,12 +14,12 @@
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 32 32%22%3E%3Crect width=%2232%22 height=%2232%22 rx=%226%22 fill=%22%2311161a%22/%3E%3Ctext x=%2216%22 y=%2222%22 font-family=%22Georgia%22 font-size=%2216%22 font-weight=%22600%22 text-anchor=%22middle%22 fill=%22%233fb5a2%22%3ELT%3C/text%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=Unbounded:wght@600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=Archivo:wdth,wght@75,700;75,800&display=swap" rel="stylesheet">
 <style>
 :root {
   --papel: #11161a; --superficie: #181f24; --tinta: #e8ebe7; --tinta-2: #a9b2ae; --linha: #2a3338; --grade: #222a2f;
   --destaque: #3fb5a2; --destaque-escuro: #6fd0c0; --destaque-claro: #1a302d; --sobre-destaque: #0a1d1a;
-  --display: "Unbounded", "IBM Plex Sans", sans-serif; --sans: "IBM Plex Sans", system-ui, sans-serif;
+  --display: "Archivo", "IBM Plex Sans", sans-serif; --sans: "IBM Plex Sans", system-ui, sans-serif;
   --raio: 6px; --largura: 1080px;
   color-scheme: dark;
 }
@@ -32,7 +32,7 @@ a { color: var(--destaque-escuro); text-underline-offset: 3px; }
 .pular { position: absolute; left: -999px; top: 8px; background: var(--superficie); padding: 8px 12px; }
 .pular:focus { left: 16px; }
 .wrap { max-width: var(--largura); margin: 0 auto; padding: 0 24px; }
-h1, h2, h3 { font-family: var(--display); font-weight: 700; line-height: 1.1; letter-spacing: -0.02em; text-wrap: balance; margin: 0; }
+h1, h2, h3 { font-family: var(--display); font-weight: 800; font-stretch: 75%; text-transform: uppercase; line-height: 1.02; letter-spacing: 0; text-wrap: balance; margin: 0; }
 h2 em, .cargo em { font-style: normal; color: var(--destaque-escuro); }
 p { margin: 0; max-width: 64ch; text-wrap: pretty; }
 
@@ -41,7 +41,7 @@ p { margin: 0; max-width: 64ch; text-wrap: pretty; }
 .abertura-grade { display: grid; grid-template-columns: 1.1fr 1fr; gap: 56px; align-items: center; }
 .quem { display: flex; align-items: center; gap: 20px; }
 .retrato { width: 88px; height: 88px; border-radius: 50%; object-fit: cover; border: 1px solid var(--linha); flex: none; }
-.abertura h1 { font-size: clamp(2rem, 5vw, 3.6rem); font-weight: 800; letter-spacing: -0.035em; }
+.abertura h1 { font-size: clamp(2.6rem, 6vw, 4.4rem); }
 .cargo { font-size: 1.2rem; margin-top: 4px; color: var(--tinta-2); }
 .resumo { font-size: 1.15rem; margin-top: 28px; }
 .fato { margin-top: 14px; color: var(--tinta-2); font-size: .98rem; }
@@ -62,7 +62,7 @@ p { margin: 0; max-width: 64ch; text-wrap: pretty; }
 
 /* Seções */
 section.bloco { padding: 80px 0; border-top: 1px solid var(--linha); }
-section.bloco h2 { font-size: clamp(1.6rem, 3.2vw, 2.4rem); font-weight: 800; margin: 6px 0 14px; }
+section.bloco h2 { font-size: clamp(2rem, 4vw, 3rem); margin: 6px 0 14px; }
 .intro { color: var(--tinta-2); margin-bottom: 40px; }
 .ferramentas { margin: 18px 0 0; padding: 0; list-style: none; display: flex; flex-wrap: wrap; gap: 8px; }
 .ferramentas li { font-size: .88rem; padding: 3px 10px; border: 1px solid var(--linha); border-radius: 4px; color: var(--tinta-2); background: var(--papel); }
@@ -70,7 +70,7 @@ section.bloco h2 { font-size: clamp(1.6rem, 3.2vw, 2.4rem); font-weight: 800; ma
 .quadro { display: block; overflow: hidden; border-radius: var(--raio); border: 1px solid var(--linha); background: var(--superficie); }
 .quadro img { display: block; width: 100%; height: auto; transition: transform .4s cubic-bezier(.16, 1, .3, 1); }
 .quadro:hover img { transform: scale(1.02); }
-.projeto h3 { font-size: 1.35rem; line-height: 1.2; margin-bottom: 8px; }
+.projeto h3 { font-size: 1.7rem; line-height: 1.05; margin-bottom: 8px; }
 .projeto .comprova { font-size: .95rem; font-weight: 600; color: var(--destaque-escuro); margin-bottom: 18px; }
 .projeto .texto p + p { margin-top: 14px; }
 .projeto .texto p { color: var(--tinta-2); }
@@ -85,7 +85,7 @@ footer { padding: 36px 0 52px; color: var(--tinta-2); font-size: .9rem; border-t
 
 /* Competências */
 .grupos { display: grid; grid-template-columns: 1fr 1fr; gap: 40px 48px; }
-.grupo h3 { font-size: .95rem; font-weight: 600; letter-spacing: 0; color: var(--destaque-escuro); margin-bottom: 14px; }
+.grupo h3 { font-size: 1.05rem; font-weight: 700; letter-spacing: .02em; color: var(--destaque-escuro); margin-bottom: 14px; }
 .pecas { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(108px, 1fr)); gap: 10px; }
 .pecas li { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px; min-height: 92px;
   padding: 14px 10px; text-align: center; font-size: .86rem; line-height: 1.3; color: var(--tinta);

@@ -98,6 +98,14 @@ footer { padding: 36px 0 52px; color: var(--tinta-2); font-size: .9rem; border-t
 .sobre-texto p { color: var(--tinta-2); }
 .sobre-texto p + p { margin-top: 16px; }
 .sobre-texto h2 { margin-bottom: 20px !important; }
+
+/* Padrão discreto de circuito, só nos cantos e fixo ao rolar: textura sem competir com o texto. */
+body::before {
+  content: ""; position: fixed; inset: 0; z-index: -1; pointer-events: none;
+  background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='140' height='140'><g fill='none' stroke='%233FB5A2' stroke-width='1'><path d='M12 24h34l16 16v26h36'/><path d='M80 126v-22l22-22h26'/><path d='M22 128l22-22h22'/><path d='M118 14v22'/></g><g fill='%233FB5A2'><circle cx='12' cy='24' r='2.4'/><circle cx='98' cy='66' r='2.4'/><circle cx='80' cy='126' r='2.4'/><circle cx='128' cy='82' r='2.4'/><circle cx='22' cy='128' r='2.4'/><circle cx='66' cy='106' r='2.4'/><circle cx='118' cy='14' r='2.4'/><circle cx='40' cy='70' r='1.6'/><circle cx='112' cy='112' r='1.6'/></g></svg>"); background-size: 140px 140px; opacity: .28;
+  -webkit-mask-image: radial-gradient(ellipse 50% 65% at 100% 0%, #000 0%, transparent 100%), radial-gradient(ellipse 45% 60% at 0% 100%, #000 0%, transparent 100%);
+          mask-image: radial-gradient(ellipse 50% 65% at 100% 0%, #000 0%, transparent 100%), radial-gradient(ellipse 45% 60% at 0% 100%, #000 0%, transparent 100%);
+}
 </style>
 </head>
 <body>

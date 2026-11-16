@@ -84,14 +84,15 @@ footer { padding: 36px 0 52px; color: var(--tinta-2); font-size: .9rem; border-t
 }
 
 /* Competências */
-.grupos { display: grid; grid-template-columns: 1fr 1fr; gap: 40px 48px; }
+.grupos { display: grid; grid-template-columns: 1fr; gap: 36px; }
 .grupo h3 { font-size: 1.05rem; font-weight: 700; letter-spacing: .02em; color: var(--destaque-escuro); margin-bottom: 14px; }
-.pecas { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(108px, 1fr)); gap: 10px; }
+.pecas { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(8, 1fr); gap: 10px; }
 .pecas li { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px; min-height: 92px;
   padding: 14px 10px; text-align: center; font-size: .86rem; line-height: 1.3; color: var(--tinta);
   background: var(--superficie); border: 1px solid var(--linha); border-radius: var(--raio); }
 .pecas svg { width: 22px; height: 22px; fill: none; stroke: var(--destaque); stroke-width: 1.75; stroke-linecap: round; stroke-linejoin: round; }
-@media (max-width: 820px) { .grupos { grid-template-columns: 1fr; } }
+@media (max-width: 980px) { .pecas { grid-template-columns: repeat(4, 1fr); } }
+@media (max-width: 520px) { .pecas { grid-template-columns: repeat(2, 1fr); } }
 
 /* Sobre mim */
 .sobre-texto p { color: var(--tinta-2); }
@@ -474,31 +475,24 @@ footer { padding: 36px 0 52px; color: var(--tinta-2); font-size: .9rem; border-t
     <div class="wrap sobre-texto">
         <h2 id="t-sobre">Sobre mim</h2>
         <p>Construí minha carreira em marketing e hoje trabalho do lado dos dados, como analista de dados e performance na Universal Music Brasil.</p>
-        <p>Meu trabalho vai da coleta à recomendação. Automatizo a coleta com Python (APIs, exportações e web scraping), organizo os dados em bancos consultados em SQL, analiso com pandas e SciPy e monto dashboards de acompanhamento de KPIs em Streamlit e Power BI. Uso estatística, como teste t, faixas de normalidade e detecção de outliers, para separar variação real de ruído, e testes automatizados para garantir a qualidade dos dados. Também uso IA para automatizar rotinas de análise.</p>
+        <p>Meu trabalho vai da coleta à recomendação. Automatizo a coleta com Python (APIs, exportações e web scraping), organizo os dados em bancos consultados em SQL, analiso com pandas e SciPy e monto dashboards de acompanhamento de KPIs em Streamlit e Power BI.</p>
+        <p>Uso estatística, como teste t, faixas de normalidade e detecção de outliers, para separar variação real de ruído, e testes automatizados para garantir a qualidade dos dados. Também uso IA para automatizar rotinas de análise.</p>
         <p>Do marketing, trago a leitura de público, de performance de mídia e de concorrência, e o hábito de transformar números em recomendações acionáveis para a liderança e para quem não é da área.</p>
         <p>Hoje curso o MBA em Business Intelligence &amp; Analytics na ECA-USP.</p>
       </div>
   </section>
 
-  <section class="bloco" id="competencias" aria-labelledby="t-comp">
-    <div class="wrap">
-      <h2 id="t-comp">Competências</h2>
-      <p class="intro">Reunidas da experiência na Universal Music Brasil, dos anos em comunicação e marketing e dos projetos públicos.</p>
-      <div class="grupos"><div class="grupo"><h3>Linguagens</h3><ul class="pecas"><li><svg aria-hidden="true"><use href="#i-code-xml"/></svg><span>Python</span></li><li><svg aria-hidden="true"><use href="#i-database"/></svg><span>SQL</span></li></ul></div><div class="grupo"><h3>Ferramentas de dados</h3><ul class="pecas"><li><svg aria-hidden="true"><use href="#i-table-2"/></svg><span>pandas</span></li><li><svg aria-hidden="true"><use href="#i-sigma"/></svg><span>SciPy</span></li><li><svg aria-hidden="true"><use href="#i-chart-line"/></svg><span>Plotly e Matplotlib</span></li><li><svg aria-hidden="true"><use href="#i-layout-dashboard"/></svg><span>Streamlit</span></li><li><svg aria-hidden="true"><use href="#i-chart-column"/></svg><span>Power BI</span></li><li><svg aria-hidden="true"><use href="#i-sheet"/></svg><span>Excel</span></li><li><svg aria-hidden="true"><use href="#i-circle-check"/></svg><span>pytest e qualidade de dados</span></li><li><svg aria-hidden="true"><use href="#i-git-branch"/></svg><span>Git e GitHub Actions</span></li></ul></div><div class="grupo"><h3>Dados e coleta</h3><ul class="pecas"><li><svg aria-hidden="true"><use href="#i-database"/></svg><span>SQLite</span></li><li><svg aria-hidden="true"><use href="#i-plug"/></svg><span>APIs REST</span></li><li><svg aria-hidden="true"><use href="#i-globe"/></svg><span>Web scraping (Playwright, Apify)</span></li><li><svg aria-hidden="true"><use href="#i-workflow"/></svg><span>Pipelines de dados</span></li><li><svg aria-hidden="true"><use href="#i-bot"/></svg><span>Automação com IA (Claude Code)</span></li></ul></div><div class="grupo"><h3>Competências</h3><ul class="pecas"><li><svg aria-hidden="true"><use href="#i-scan-search"/></svg><span>Estatística e testes de hipótese</span></li><li><svg aria-hidden="true"><use href="#i-refresh-cw"/></svg><span>Automação de relatórios</span></li><li><svg aria-hidden="true"><use href="#i-target"/></svg><span>KPIs e dashboards de monitoramento</span></li><li><svg aria-hidden="true"><use href="#i-git-compare"/></svg><span>Benchmark e inteligência competitiva</span></li><li><svg aria-hidden="true"><use href="#i-trending-up"/></svg><span>Performance de mídias sociais</span></li><li><svg aria-hidden="true"><use href="#i-activity"/></svg><span>Google Analytics</span></li><li><svg aria-hidden="true"><use href="#i-users"/></svg><span>Marketing de influência</span></li><li><svg aria-hidden="true"><use href="#i-pen-line"/></svg><span>Estratégia de conteúdo</span></li><li><svg aria-hidden="true"><use href="#i-message-square-text"/></svg><span>Storytelling com dados</span></li><li><svg aria-hidden="true"><use href="#i-search"/></svg><span>SEO</span></li></ul></div></div>
-    </div>
-  </section>
-
   <section class="bloco" id="projetos" aria-labelledby="t-projetos">
     <div class="wrap">
       <h2 id="t-projetos">Projetos</h2>
-      <p class="intro">Projetos públicos, com dados abertos, código aberto e painel no ar.</p>
+      <p class="intro">Projetos públicos, com dados abertos, código aberto e painel no ar. Novos projetos entram aqui conforme ficam prontos.</p>
       <article class="projeto">
         <a class="quadro" href="https://wikipedia-musica-brasileira.streamlit.app" aria-label="Abrir o painel Acessos à Wikipédia e eventos da música brasileira">
           <img src="assets/painel.jpg" width="800" height="562" alt="Painel escuro com o resumo da semana e a tabela de 24 artistas, com os que ficaram acima do normal destacados" loading="lazy">
         </a>
         <div class="texto">
           <h3>Acessos à Wikipédia e eventos da música brasileira</h3>
-          <p class="comprova">Coleta por API, SQL, estatística e painel publicado</p>
+          <p class="comprova">A pergunta: quando um acontecimento aparece nos dados, e como separar isso da oscilação comum?</p>
           <p>Acontecimentos do mundo real, como um aniversário ou a data de uma morte, aparecem nos acessos aos verbetes de 24 artistas brasileiros na Wikipédia. O painel separa esses picos da oscilação comum.</p>
           <p>Uma faixa de normalidade por artista diz se a semana fugiu do padrão, um z-score robusto acha os dias atípicos e um teste t de Welch compara gêneros musicais. Os dados se atualizam sozinhos toda segunda.</p>
           <ul class="ferramentas" aria-label="Ferramentas do projeto"><li>Python</li><li>SQLite e SQL</li><li>pandas e SciPy</li><li>Streamlit</li><li>GitHub Actions</li><li>pytest</li></ul>
@@ -508,6 +502,14 @@ footer { padding: 36px 0 52px; color: var(--tinta-2); font-size: .9rem; border-t
           </div>
         </div>
       </article>
+    </div>
+  </section>
+
+  <section class="bloco" id="competencias" aria-labelledby="t-comp">
+    <div class="wrap">
+      <h2 id="t-comp">Competências</h2>
+      <p class="intro">Reunidas da experiência na Universal Music Brasil, dos anos em comunicação e marketing e dos projetos públicos.</p>
+      <div class="grupos"><div class="grupo"><h3>Análise e visualização</h3><ul class="pecas"><li><svg aria-hidden="true"><use href="#i-code-xml"/></svg><span>Python</span></li><li><svg aria-hidden="true"><use href="#i-table-2"/></svg><span>pandas</span></li><li><svg aria-hidden="true"><use href="#i-sigma"/></svg><span>SciPy</span></li><li><svg aria-hidden="true"><use href="#i-scan-search"/></svg><span>Estatística e testes de hipótese</span></li><li><svg aria-hidden="true"><use href="#i-chart-line"/></svg><span>Plotly e Matplotlib</span></li><li><svg aria-hidden="true"><use href="#i-layout-dashboard"/></svg><span>Streamlit</span></li><li><svg aria-hidden="true"><use href="#i-chart-column"/></svg><span>Power BI</span></li><li><svg aria-hidden="true"><use href="#i-sheet"/></svg><span>Excel</span></li></ul></div><div class="grupo"><h3>Dados e automação</h3><ul class="pecas"><li><svg aria-hidden="true"><use href="#i-database"/></svg><span>SQL e SQLite</span></li><li><svg aria-hidden="true"><use href="#i-plug"/></svg><span>APIs REST</span></li><li><svg aria-hidden="true"><use href="#i-globe"/></svg><span>Web scraping (Playwright, Apify)</span></li><li><svg aria-hidden="true"><use href="#i-workflow"/></svg><span>Pipelines de dados</span></li><li><svg aria-hidden="true"><use href="#i-refresh-cw"/></svg><span>Automação de relatórios</span></li><li><svg aria-hidden="true"><use href="#i-git-branch"/></svg><span>Git e GitHub Actions</span></li><li><svg aria-hidden="true"><use href="#i-circle-check"/></svg><span>Testes e qualidade de dados</span></li><li><svg aria-hidden="true"><use href="#i-bot"/></svg><span>Automação com IA (Claude Code)</span></li></ul></div><div class="grupo"><h3>Marketing analytics</h3><ul class="pecas"><li><svg aria-hidden="true"><use href="#i-activity"/></svg><span>Google Analytics</span></li><li><svg aria-hidden="true"><use href="#i-target"/></svg><span>KPIs e dashboards de monitoramento</span></li><li><svg aria-hidden="true"><use href="#i-trending-up"/></svg><span>Performance de mídias sociais</span></li><li><svg aria-hidden="true"><use href="#i-git-compare"/></svg><span>Benchmark e inteligência competitiva</span></li><li><svg aria-hidden="true"><use href="#i-users"/></svg><span>Marketing de influência</span></li><li><svg aria-hidden="true"><use href="#i-pen-line"/></svg><span>Estratégia de conteúdo</span></li><li><svg aria-hidden="true"><use href="#i-search"/></svg><span>SEO</span></li><li><svg aria-hidden="true"><use href="#i-message-square-text"/></svg><span>Storytelling com dados</span></li></ul></div></div>
     </div>
   </section>
 

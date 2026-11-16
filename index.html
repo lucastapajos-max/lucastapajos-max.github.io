@@ -14,7 +14,7 @@
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 32 32%22%3E%3Crect width=%2232%22 height=%2232%22 rx=%226%22 fill=%22%2311161a%22/%3E%3Ctext x=%2216%22 y=%2222%22 font-family=%22Georgia%22 font-size=%2216%22 font-weight=%22600%22 text-anchor=%22middle%22 fill=%22%233fb5a2%22%3ELT%3C/text%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=Archivo:wdth,wght@75,700;75,800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;600&family=Archivo:wdth,wght@75,700;75,800&display=swap" rel="stylesheet">
 <style>
 :root {
   --papel: #11161a; --superficie: #181f24; --tinta: #e8ebe7; --tinta-2: #a9b2ae; --linha: #2a3338; --grade: #222a2f;
@@ -99,13 +99,34 @@ footer { padding: 36px 0 52px; color: var(--tinta-2); font-size: .9rem; border-t
 .sobre-texto p + p { margin-top: 16px; }
 .sobre-texto h2 { margin-bottom: 20px !important; }
 
+
 /* Padrão discreto de circuito, só nos cantos e fixo ao rolar: textura sem competir com o texto. */
-body::before {
-  content: ""; position: fixed; inset: 0; z-index: -1; pointer-events: none;
-  background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='140' height='140'><g fill='none' stroke='%233FB5A2' stroke-width='1'><path d='M12 24h34l16 16v26h36'/><path d='M80 126v-22l22-22h26'/><path d='M22 128l22-22h22'/><path d='M118 14v22'/></g><g fill='%233FB5A2'><circle cx='12' cy='24' r='2.4'/><circle cx='98' cy='66' r='2.4'/><circle cx='80' cy='126' r='2.4'/><circle cx='128' cy='82' r='2.4'/><circle cx='22' cy='128' r='2.4'/><circle cx='66' cy='106' r='2.4'/><circle cx='118' cy='14' r='2.4'/><circle cx='40' cy='70' r='1.6'/><circle cx='112' cy='112' r='1.6'/></g></svg>"); background-size: 140px 140px; opacity: .28;
+.fundo { position: fixed; inset: 0; width: 100%; height: 100%; z-index: -1; pointer-events: none; opacity: .28;
   -webkit-mask-image: radial-gradient(ellipse 50% 65% at 100% 0%, #000 0%, transparent 100%), radial-gradient(ellipse 45% 60% at 0% 100%, #000 0%, transparent 100%);
-          mask-image: radial-gradient(ellipse 50% 65% at 100% 0%, #000 0%, transparent 100%), radial-gradient(ellipse 45% 60% at 0% 100%, #000 0%, transparent 100%);
+          mask-image: radial-gradient(ellipse 50% 65% at 100% 0%, #000 0%, transparent 100%), radial-gradient(ellipse 45% 60% at 0% 100%, #000 0%, transparent 100%); }
+.fundo path { fill: none; stroke: var(--destaque); stroke-width: 1; }
+.fundo circle { fill: var(--destaque); }
+
+/* Menu */
+.menu { position: sticky; top: 0; z-index: 10; background: var(--papel); border-bottom: 1px solid var(--linha); }
+.menu-linha { display: flex; align-items: center; justify-content: space-between; gap: 16px; min-height: 56px; }
+.menu a { color: var(--tinta-2); text-decoration: none; font-size: .95rem; }
+.menu a:hover { color: var(--tinta); }
+.menu-nome { font-family: var(--display); font-weight: 800; font-stretch: 75%; text-transform: uppercase; color: var(--tinta) !important; font-size: 1.1rem !important; }
+.menu-links { display: flex; gap: 22px; }
+section[id] { scroll-margin-top: 72px; }
+
+/* Rodapé */
+.rodape { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 12px; }
+.rodape a { display: inline-block; padding: 6px 0; }
+
+/* Quem prefere menos movimento */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { transition: none !important; }
+  .botao:hover, .quadro:hover img { transform: none; }
 }
+@media (max-width: 640px) { .menu-nome { display: none; } .menu-linha { justify-content: center; } .menu-links { gap: 18px; } }
 </style>
 </head>
 <body>
@@ -450,8 +471,19 @@ body::before {
   <rect width="8" height="8" x="3" y="3" rx="2" />
   <path d="M7 11v4a2 2 0 0 0 2 2h4" />
   <rect width="8" height="8" x="13" y="13" rx="2" /></symbol></svg>
+<svg class="fundo" aria-hidden="true" focusable="false"><defs><pattern id="circuito" width="140" height="140" patternUnits="userSpaceOnUse">
+<path d="M12 24h34l16 16v26h36M80 126v-22l22-22h26M22 128l22-22h22M118 14v22"/>
+<circle cx="12" cy="24" r="2.4"/><circle cx="98" cy="66" r="2.4"/><circle cx="80" cy="126" r="2.4"/><circle cx="128" cy="82" r="2.4"/>
+<circle cx="22" cy="128" r="2.4"/><circle cx="66" cy="106" r="2.4"/><circle cx="118" cy="14" r="2.4"/><circle cx="40" cy="70" r="1.6"/><circle cx="112" cy="112" r="1.6"/>
+</pattern></defs><rect width="100%" height="100%" fill="url(#circuito)"/></svg>
 <a class="pular" href="#conteudo">Pular para o conteúdo</a>
 
+<nav class="menu" aria-label="Seções">
+  <div class="wrap menu-linha">
+    <a class="menu-nome" href="#">Lucas Tapajós</a>
+    <div class="menu-links"><a href="#sobre">Sobre</a><a href="#projetos">Projetos</a><a href="#competencias">Competências</a><a href="#contato">Contato</a></div>
+  </div>
+</nav>
 <header class="abertura">
   <div class="wrap abertura-grade">
     <div>
@@ -496,7 +528,7 @@ body::before {
       <p class="intro">Projetos públicos, com dados abertos, código aberto e painel no ar. Novos projetos entram aqui conforme ficam prontos.</p>
       <article class="projeto">
         <a class="quadro" href="https://wikipedia-musica-brasileira.streamlit.app" aria-label="Abrir o painel Acessos à Wikipédia e eventos da música brasileira">
-          <img src="assets/painel.jpg" width="800" height="562" alt="Painel escuro com o resumo da semana e a tabela de 24 artistas, com os que ficaram acima do normal destacados" loading="lazy">
+          <picture><source media="(max-width: 520px)" srcset="assets/painel-celular.jpg" width="520" height="340"><img src="assets/painel.jpg" width="800" height="562" alt="Painel escuro com o resumo da semana e a tabela de 24 artistas, com os que ficaram acima do normal destacados" loading="lazy"></picture>
         </a>
         <div class="texto">
           <h3>Acessos à Wikipédia e eventos da música brasileira</h3>
@@ -521,12 +553,12 @@ body::before {
     </div>
   </section>
 
-  <section class="bloco contato" aria-labelledby="t-contato">
+  <section class="bloco contato" id="contato" aria-labelledby="t-contato">
     <div class="wrap">
       <h2 id="t-contato">Contato</h2>
-      <p class="intro">Aberto a vagas no Rio de Janeiro, em São Paulo e remotas.</p>
+      <p class="intro">Aberto a vagas no Rio de Janeiro, em São Paulo e remotas. E-mail: <a href="mailto:contato.ltapajos@gmail.com">contato.ltapajos@gmail.com</a></p>
       <div class="canais">
-        <a class="botao cheio" href="mailto:contato.ltapajos@gmail.com">contato.ltapajos@gmail.com</a>
+        <a class="botao cheio" href="mailto:contato.ltapajos@gmail.com">Enviar e-mail</a>
         <a class="botao vazio" href="https://www.linkedin.com/in/lucas-tapajos">LinkedIn</a>
         <a class="botao vazio" href="https://github.com/lucastapajos-max">GitHub</a>
       </div>
@@ -535,7 +567,7 @@ body::before {
 </main>
 
 <footer>
-  <div class="wrap">Lucas Tapajós · Rio de Janeiro</div>
+  <div class="wrap rodape">© 2026 Lucas Tapajós · Rio de Janeiro<span><a href="https://www.linkedin.com/in/lucas-tapajos">LinkedIn</a> · <a href="https://github.com/lucastapajos-max">GitHub</a></span></div>
 </footer>
 </body>
 </html>

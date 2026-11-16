@@ -98,18 +98,9 @@ footer { padding: 36px 0 52px; color: var(--tinta-2); font-size: .9rem; border-t
 @media (max-width: 820px) { .grupos { grid-template-columns: 1fr; } }
 
 /* Sobre mim */
-.sobre-grade { display: grid; grid-template-columns: 1.5fr 1fr; gap: 56px; align-items: start; }
-.sobre-texto p + p { margin-top: 16px; }
 .sobre-texto p { color: var(--tinta-2); }
+.sobre-texto p + p { margin-top: 16px; }
 .sobre-texto h2 { margin-bottom: 20px !important; }
-.numeros { background: var(--superficie); border: 1px solid var(--linha); border-radius: var(--raio); padding: 24px; }
-.numeros h3 { font-family: var(--sans); font-size: 1rem; font-weight: 600; color: var(--destaque-escuro); margin-bottom: 8px; }
-.numeros dl { margin: 0; }
-.numeros dl > div { padding: 14px 0; border-bottom: 1px solid var(--linha); }
-.numeros dl > div:last-child { border-bottom: 0; }
-.numeros dt { font-family: var(--serif); font-size: 1.45rem; font-weight: 600; line-height: 1.2; }
-.numeros dd { margin: 4px 0 0; font-size: .92rem; color: var(--tinta-2); }
-@media (max-width: 820px) { .sobre-grade { grid-template-columns: 1fr; gap: 32px; } }
 </style>
 </head>
 <body>
@@ -485,25 +476,13 @@ footer { padding: 36px 0 52px; color: var(--tinta-2); font-size: .9rem; border-t
 
 <main id="conteudo">
   <section class="bloco" id="sobre" aria-labelledby="t-sobre">
-    <div class="wrap sobre-grade">
-      <div class="sobre-texto">
+    <div class="wrap sobre-texto">
         <h2 id="t-sobre">Sobre mim</h2>
-        <p>Construí minha carreira em marketing e hoje trabalho do lado dos dados. Na Universal Music Brasil, sou analista de dados e performance de mídias sociais e faço os relatórios semanais e mensais das redes da gravadora (Instagram, TikTok, YouTube e X) para o time e a liderança.</p>
-        <p>Desenvolvi em Python o sistema que sustenta esses relatórios: coleta automática por exportações das plataformas e web scraping, um banco SQLite consultado em SQL e um painel em Streamlit. A camada de análise usa pandas e SciPy, com teste t de Welch, faixas de normalidade e detecção de outliers, para separar variação real de ruído antes de recomendar mudança de pauta, formato ou investimento.</p>
-        <p>Nos relatórios de campanhas e eventos, defini KPIs de referência para eventos do mesmo porte, que ajudaram a ajustar os parâmetros de mídia paga e branded content.</p>
-        <p>Antes, trabalhei com conteúdo e marketing no Parque Bondinho Pão de Açúcar, na PROTESTE e na TV Globo. Hoje curso o MBA em Business Intelligence &amp; Analytics na ECA-USP.</p>
+        <p>Construí minha carreira em marketing e hoje trabalho do lado dos dados, como analista de dados e performance na Universal Music Brasil.</p>
+        <p>Meu trabalho vai da coleta à recomendação. Automatizo a coleta com Python (APIs, exportações e web scraping), organizo os dados em bancos consultados em SQL, analiso com pandas e SciPy e monto painéis em Streamlit e Power BI. Uso estatística, como teste t, faixas de normalidade e detecção de outliers, para separar variação real de ruído antes de recomendar uma mudança.</p>
+        <p>Do marketing, trago a leitura de público, de performance de mídia e de concorrência, e o hábito de traduzir números em decisão para quem não é da área.</p>
+        <p>Hoje curso o MBA em Business Intelligence &amp; Analytics na ECA-USP.</p>
       </div>
-      <aside class="numeros" aria-labelledby="t-numeros">
-        <h3 id="t-numeros">Em números</h3>
-        <dl>
-          <div><dt>1 dia → 4 horas</dt><dd>tempo do relatório semanal na Universal depois da automação</dd></div>
-          <div><dt>28 tabelas</dt><dd>no banco SQLite do relatório, com mais de 16 mil registros</dd></div>
-          <div><dt>20 arquivos</dt><dd>de testes automatizados (pytest) no sistema da Universal</dd></div>
-          <div><dt>249 creators</dt><dd>na base de marketing de influência que padronizei no Bondinho</dd></div>
-          <div><dt>R$ 300 mil</dt><dd>em receita para a qual contribuíram as estratégias de conteúdo da PROTESTE</dd></div>
-        </dl>
-      </aside>
-    </div>
   </section>
 
   <section class="bloco" aria-labelledby="t-trilhas">

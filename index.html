@@ -127,6 +127,7 @@ section[id] { scroll-margin-top: 72px; }
   .botao:hover, .quadro:hover img { transform: none; }
 }
 @media (max-width: 640px) { .menu-nome { display: none; } .menu-linha { justify-content: center; } .menu-links { gap: 18px; } }
+.sem-quebra { white-space: nowrap; }
 </style>
 </head>
 <body>
@@ -556,7 +557,7 @@ section[id] { scroll-margin-top: 72px; }
   <section class="bloco contato" id="contato" aria-labelledby="t-contato">
     <div class="wrap">
       <h2 id="t-contato">Contato</h2>
-      <p class="intro">Aberto a vagas no Rio de Janeiro, em São Paulo e remotas. E-mail: <a href="mailto:contato.ltapajos@gmail.com">contato.ltapajos@gmail.com</a></p>
+      <p class="intro">Aberto a vagas no Rio de Janeiro, em São Paulo e remotas.<br><span class="sem-quebra">E‑mail: <a href="mailto:contato.ltapajos@gmail.com">contato.ltapajos@gmail.com</a></span></p>
       <div class="canais">
         <a class="botao cheio" href="mailto:contato.ltapajos@gmail.com">Enviar e-mail</a>
         <a class="botao vazio" href="https://www.linkedin.com/in/lucas-tapajos">LinkedIn</a>

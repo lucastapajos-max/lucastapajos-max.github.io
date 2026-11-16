@@ -128,6 +128,8 @@ section[id] { scroll-margin-top: 72px; }
 }
 @media (max-width: 640px) { .menu-nome { display: none; } .menu-linha { justify-content: center; } .menu-links { gap: 18px; } }
 .sem-quebra { white-space: nowrap; }
+.menu-links a { padding: 6px 0; border-bottom: 2px solid transparent; }
+.menu-links a[aria-current="true"] { color: var(--tinta); border-bottom-color: var(--destaque); }
 </style>
 </head>
 <body>
@@ -570,5 +572,15 @@ section[id] { scroll-margin-top: 72px; }
 <footer>
   <div class="wrap rodape">© 2026 Lucas Tapajós · Rio de Janeiro<span><a href="https://www.linkedin.com/in/lucas-tapajos">LinkedIn</a> · <a href="https://github.com/lucastapajos-max">GitHub</a></span></div>
 </footer>
+<script>
+// Destaca no menu a seção que está na tela.
+const links = new Map([...document.querySelectorAll('.menu-links a')].map(a => [a.getAttribute('href').slice(1), a]));
+const marcar = id => links.forEach((a, chave) => chave === id ? a.setAttribute('aria-current', 'true') : a.removeAttribute('aria-current'));
+const obs = new IntersectionObserver(entradas => {
+  entradas.filter(e => e.isIntersecting).forEach(e => marcar(e.target.id));
+}, { rootMargin: '-45% 0px -50% 0px' });
+links.forEach((_, id) => { const s = document.getElementById(id); if (s) obs.observe(s); });
+obs.observe(document.querySelector('.abertura'));  // na abertura, nenhum atalho fica marcado
+</script>
 </body>
 </html>

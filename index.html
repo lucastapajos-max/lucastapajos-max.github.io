@@ -74,6 +74,7 @@ section.bloco h2 { font-size: clamp(2rem, 4vw, 3rem); margin: 6px 0 14px; }
 .projeto .comprova { font-size: .95rem; font-weight: 600; color: var(--destaque-escuro); margin-bottom: 18px; }
 .projeto .texto p + p { margin-top: 14px; }
 .projeto .texto p { color: var(--tinta-2); }
+.projeto + .projeto { margin-top: 72px; padding-top: 72px; border-top: 1px solid var(--grade); }
 .contato .canais { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px; }
 footer { padding: 36px 0 52px; color: var(--tinta-2); font-size: .9rem; border-top: 1px solid var(--linha); }
 @media (max-width: 820px) {
@@ -529,6 +530,22 @@ section[id] { scroll-margin-top: 72px; }
     <div class="wrap">
       <h2 id="t-projetos">Projetos</h2>
       <p class="intro">Projetos públicos, com dados abertos, código aberto e painel no ar. Novos projetos entram aqui conforme ficam prontos.</p>
+      <article class="projeto">
+        <a class="quadro" href="https://datastudio.google.com/reporting/c90a7ec2-8e4d-4aaf-8732-3090e4bda3d7" aria-label="Abrir o painel Clientes e retenção numa loja online">
+          <picture><source media="(max-width: 520px)" srcset="assets/retencao-celular.jpg" width="520" height="164"><img src="assets/retencao.jpg" width="800" height="518" alt="Gráfico de barras com a parte dos clientes e a parte da receita de cada segmento, com a tabela dos seis segmentos abaixo" loading="lazy"></picture>
+        </a>
+        <div class="texto">
+          <h3>Clientes e retenção numa loja online</h3>
+          <p class="comprova">A pergunta: quais clientes valem a pena reter, e onde a loja perde os outros?</p>
+          <p>Com os eventos públicos do GA4 da loja do Google no BigQuery, o projeto mede o funil até a compra, a recompra por coorte semanal e os segmentos de clientes por recência, frequência e valor.</p>
+          <p>Os clientes que gastaram muito e sumiram são 12,55% dos compradores e 21,29% da receita. Um teste de proporções mostra que o canal muda a conversão (indicação 1,66%, mídia paga 0,98%) e que o dispositivo não muda na prática.</p>
+          <ul class="ferramentas" aria-label="Ferramentas do projeto"><li>SQL</li><li>BigQuery</li><li>GA4</li><li>Python e SciPy</li><li>Data Studio</li><li>pytest</li></ul>
+          <div class="acoes">
+            <a class="botao cheio" href="https://datastudio.google.com/reporting/c90a7ec2-8e4d-4aaf-8732-3090e4bda3d7">Ver o painel</a>
+            <a class="botao vazio" href="https://github.com/lucastapajos-max/retencao-ga4">Ver o código</a>
+          </div>
+        </div>
+      </article>
       <article class="projeto">
         <a class="quadro" href="https://wikipedia-musica-brasileira.streamlit.app" aria-label="Abrir o painel Acessos à Wikipédia e eventos da música brasileira">
           <picture><source media="(max-width: 520px)" srcset="assets/painel-celular.jpg" width="520" height="340"><img src="assets/painel.jpg" width="800" height="562" alt="Painel escuro com o resumo da semana e a tabela de 24 artistas, com os que ficaram acima do normal destacados" loading="lazy"></picture>
